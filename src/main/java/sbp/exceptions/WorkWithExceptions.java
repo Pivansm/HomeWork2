@@ -1,6 +1,6 @@
 package sbp.exceptions;
 
-public class WorkWithExceptions {
+public class WorkWithExceptions extends Throwable {
     /**
      * В данном методе необходимо вызвать методы throwCheckedException и throwUncheckedException.
      * Все исключения должны быть обработаны
@@ -13,6 +13,26 @@ public class WorkWithExceptions {
         /*
         ...
          */
+        System.out.println("Start");
+        try
+        {
+            System.out.println("Step 1");
+            throwCheckedException();
+        }
+        catch (RuntimeException e)
+        {
+            System.out.println("Catch RuntimeException");
+            System.out.println("" + e.getMessage());
+            e.printStackTrace();
+            throwUncheckedException();
+
+        } catch (Exception e) {
+            System.out.println("Catch Exception");
+            System.out.println("" + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            System.out.println("Finish");
+        }
     }
 
     /**

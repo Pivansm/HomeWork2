@@ -1,6 +1,7 @@
 package sbp.io;
 
 import java.io.*;
+import java.util.Date;
 
 public class MyIOExample {
     /**
@@ -20,11 +21,14 @@ public class MyIOExample {
         /*
         ...
          */
+
         File file = new File(fileName);
         if(file.exists()) {
+            System.out.println("абсолютный путь " + file.getAbsolutePath());
+            System.out.println("родительский путь " + file.getParent());
             if(file.isFile()) {
-                System.out.println("размер:=" );
-                System.out.println(" время последнего изменения:=");
+                System.out.println("размер "  + file.length());
+                System.out.println(" время последнего изменения " + new Date(file.lastModified()));
             }
             return true;
         }
